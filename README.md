@@ -23,3 +23,29 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
+## Instructions
+
+1. Clone the repository.
+2. Run `bundle install` to install the dependencies.
+
+### Instructions to run the tests
+
+Once bundle install has run, run `rspec` in terminal
+
+### Instruction to run the code
+
+Once bundle install has run follow this guide
+
+1. Run `irb` in terminal
+2. Make sure you require the two files with, 
+
+```
+require './lib/bank_account'
+require './lib/transaction'
+```
+
+3. Run a new account with `account = Account.new`
+4. To add a new transaction of type `deposit` run this within irb `account.deposit(Transaction.new(1000))`
+4. To add a new transaction of type `withdraw` run this within irb `account.withdraw(Transaction.new(1000))`
+5. To print the bank statement run this within irb `account.create_statement` followed by `account.print_statement`
