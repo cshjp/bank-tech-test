@@ -1,21 +1,13 @@
 class Account
+  attr_reader :balance, :transactions
+
   def initialize
     @balance = 0
+    @transactions = []
   end
 
-  def balance
-    @balance
-  end
-
-  def set_balance(amount)
-    @balance = amount
-  end
-
-  def deposit(amount)
-    @balance += amount
-  end
-
-  def withdraw(amount)
-    @balance -= amount
+  def deposit(transaction)
+    @balance += transaction.amount
+    @transactions << {amount: transaction.amount, date: transaction.date, balance: @balance}
   end
 end
