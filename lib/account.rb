@@ -19,7 +19,7 @@ class Account
 
   def create_statement
     @statement << "date || credit || debit || balance"
-    @transactions.each do |transaction|
+    @transactions.reverse.each do |transaction|
       if transaction[:amount].positive?
         @statement << "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
       else
@@ -28,7 +28,9 @@ class Account
     end
   end
   
-  def print_statement
-    print @statement.join("\n")
+  def print_statement(io)
+    @statement.each do |statement|
+      io.puts statement
+    end
   end
 end
