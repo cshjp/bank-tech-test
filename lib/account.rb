@@ -10,4 +10,9 @@ class Account
     @balance += transaction.amount
     @transactions << {amount: transaction.amount, date: transaction.date, balance: @balance}
   end
+
+  def withdraw(transaction)
+    @balance -= transaction.amount
+    @transactions << {amount: -(transaction.amount), date: transaction.date, balance: @balance}
+  end
 end
