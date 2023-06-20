@@ -19,7 +19,7 @@ class Account
 
   def create_statement
     @statement << "date || credit || debit || balance"
-    @transactions.reverse.each do |transaction|
+    @transactions.sort_by {|hash| hash[:date]}.reverse.each do |transaction|
       if transaction[:amount].positive?
         @statement << "#{transaction[:date]} || #{transaction[:amount]} || || #{transaction[:balance]}"
       else
