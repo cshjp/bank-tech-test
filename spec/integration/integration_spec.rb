@@ -1,9 +1,11 @@
-require_relative "../../lib/account.rb"
-require_relative "../../lib/transaction.rb"
+# frozen_string_literal: true
 
-describe "integration" do
-  it "should add a couple transactions in the account" do
-    account = Account.new
+require_relative '../../lib/account'
+require_relative '../../lib/transaction'
+
+describe 'integration' do
+  it 'should add a couple transactions in the account' do
+    account = Account.new(Kernel)
     account.deposit(Transaction.new(1000))
     account.withdraw(Transaction.new(1000))
     account.deposit(Transaction.new(2000))

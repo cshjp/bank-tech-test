@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'transaction'
 
 describe Transaction do
@@ -7,7 +9,7 @@ describe Transaction do
     expect(transaction.date).to eq(Date.today)
   end
 
-  it "should fail if the amount isnt an integer" do
-    expect { Transaction.new('a') }.to raise_error("Amount must be an integer")
+  it 'should fail if the amount isnt an integer' do
+    expect { Transaction.new('a') }.to raise_error('Amount must be an integer')
   end
 end
